@@ -15,26 +15,24 @@ auth.set_access_token(access_token,access_token_secret)
 api = tweepy.API(auth)
 
 #get my timeline mes by using home_timeline
-
 public_tweets = api.home_timeline()
 for tweet in public_tweets:
     print (tweet.text)
     
-# twitter of a person
+# get the tweets of a twitter_id or user_name
 name = "ikamalhaasan"
 tweetcount = 20
 result = api.user_timeline(id= name,count = tweetcount)
-
+#for getting all tweets
 for tweet in result:
     print(tweet.text)
 
 query = "#NammavarAgainstSterlite"
-# Language code (follows ISO 639-1 standards)
 language = "en"
 # Calling the user_timeline function with our parameters
 results = api.search(q=query, lang=language)
 
-# foreach through all tweets pulled
+# for getting all tweets
 for tweet in results:
    # printing the text stored inside the tweet object
    print (tweet.user.screen_name,"Tweeted:",tweet.text)
